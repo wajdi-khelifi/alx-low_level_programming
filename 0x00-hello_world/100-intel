@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc $CFILE -x'.s' -Xassembler Intel syntax
+gcc -S -masm=intel "$CFILE" -o "$ASMFILE"
