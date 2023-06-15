@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILE -x'.s' -Xassembler Intel syntax
+gcc $CFILE -x'.s' -Xassembler Intel syntax
