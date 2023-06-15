@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include <stdio.h>
 /**
 * main - Entry point
 *
@@ -6,7 +6,12 @@
 */
 int main(void)
 {
-write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", sizeof(message) - 1);
-return (1);
+char message[] ="and that piece of art is useful\" - Dora Korpar, 2015-10-1\n";
+int i=0;
+while(message[i] != '\0')
+{
+putchar(message[i]);
+i++;
 }
-
+return(1);
+}
