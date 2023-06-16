@@ -16,5 +16,5 @@ for (i = 0; i < 26 ; i++)
 {
 printf("%c\n", alphabet[i]);
 }
-return(0);
+return (0);
 }
