@@ -14,7 +14,8 @@ alphabet[i] = 'a' + i;
 }
 for (i = 0; i < 26 ; i++)
 {
-printf("%c\n", alphabet[i]);
+putchar(alphabet[i]);
 }
+putchar('');
 return (0);
 }
