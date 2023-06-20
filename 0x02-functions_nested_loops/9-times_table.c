@@ -12,19 +12,19 @@ for (j = 0; j < 10; j++)
 t = i * j;
 if (j == 0)
 {
-_putchar(k + '0');
+_putchar(t + '0');
 _putchar(',');
 _putchar(' ');
 }
 if (j != 0 && t < 10)
 {
-_putchar(k + '0');
+_putchar(t + '0');
 _putchar(',');
 _putchar(' ');
 }
 else if (j >= 10)
 {
-_putchar(k + '0');
+_putchar(t + '0');
 _putchar(',');
 _putchar(' ');
 }
