@@ -12,10 +12,9 @@ for (j = 0; j < 10; j++)
 t = i * j;
 if (t < 10)
 {
+_putchar(t + '0');
 _putchar(',');
 _putchar(' ');
-_putchar(' ');
-_putchar(t + '0');
 }
 else if (t >= 10)
 {
