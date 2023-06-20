@@ -1,9 +1,11 @@
 #include "main"
 /**
- * print_sign - Checks the sign of number.
- * @n: The character to be checked.
+ * print_sign - Prints the sign of a number.
+ * @n: The number of which the sign will be printed.
  *
- * Return: 1 if number grater than zero, Return -1 if number less than zero, 0 otherwise.
+ * Return: 1 if the number is greater than zero,
+ *         0 if the number is zero,
+ *         -1 if the number is less than zero.
  */
 int print_sign(int n)
 {
