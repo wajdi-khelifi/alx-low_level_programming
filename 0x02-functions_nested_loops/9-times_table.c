@@ -21,11 +21,11 @@ _putchar(' ');
 _putchar(' ');
 _putchar(t + '0');
 }
-else if (j >= 10)
+else if (t >= 10)
 {
 _putchar(',');
 _putchar(' ');
-_putchar(t / 10 + '0');
+_putchar((t / 10) + '0');
 _putchar((t % 10) + '0');
 }
 }
