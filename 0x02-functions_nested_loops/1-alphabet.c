@@ -4,18 +4,12 @@
 *
 * Return: Always 0 (Success)
 */
-int main(void)
+void print_alphabet(void)
 {
-print_alphabet();
-return (0);
+char alp
+for (alp = 'a'; alp <= 'z'; alp++)
+{
+_putchar(alp);
 }
-void print_alphabet(void);
-{
-char alp[26] = "abcdefghijklmnopqrstuvwxyz";
-int i;
-for (i = 0; i < 26; i++)
-{
-putchar(alp[i]);
-}
-putchar('\n');
+_putchar('\n);
 }
