@@ -15,6 +15,7 @@ if (t < 10)
 _putchar(t + '0');
 _putchar(',');
 _putchar(' ');
+_putchar(' ');
 }
 else if (t >= 10)
 {
