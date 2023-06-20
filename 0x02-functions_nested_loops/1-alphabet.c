@@ -4,18 +4,18 @@
 *
 * Return: Always 0 (Success)
 */
-void print_alphabet(void)
+int main(void)
 {
-	char alp[26] = "abcdefghijklmnopqrstuvwxyz";
-	int i;
-	for (i = 0; i < 26; i++)
-	{
-		putchar(alp[i]);
-	}
+print_alphabet();
+return (0);
 }
-int main (void)
+void print_alphabet(void);
 {
-	print_alphabet();
-	return (0);
+char alp[26] = "abcdefghijklmnopqrstuvwxyz";
+int i;
+for (i = 0; i < 26; i++)
+{
+putchar(alp[i]);
 }
-
+putchar('\n');
+}
