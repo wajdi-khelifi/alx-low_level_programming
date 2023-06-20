@@ -25,7 +25,7 @@ else if (j >= 10)
 {
 _putchar(',');
 _putchar(' ');
-_putchar((t / 10) + '0');
+_putchar(t / 10 + '0');
 _putchar((t % 10) + '0');
 }
 }
