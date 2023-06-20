@@ -12,5 +12,5 @@ if (n >= 0)
 return (n);
 }
 else
-return (abs(n));
+return (-n);
 }
