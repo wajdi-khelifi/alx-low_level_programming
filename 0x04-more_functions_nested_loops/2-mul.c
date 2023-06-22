@@ -2,8 +2,8 @@
 /**
  * mul - multiply two numbers
  * Description: multiply two numbers
- * @num1: interger value
- * @num2: interger value
+ * @a: interger value
+ * @b: interger value
  *
  * Return: result
  */
