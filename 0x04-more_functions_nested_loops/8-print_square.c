@@ -13,9 +13,8 @@ for (j = 0; j < size; j++)
 {
 for (i = 0; i < size; i++)
 {
-putchar('#');
+_putchar('#');
 }
-}
-putchar('\n');
+_putchar('\n');
 }
 }
