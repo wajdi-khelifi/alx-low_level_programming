@@ -4,16 +4,25 @@
  *
  * Return: (0) Success
  */
-int main(void)
-long int n, p;
-n = 612852475143;
-for ( p = 2; p <= n; p++)
-{
-if (n % p == 0)
-{
-n /= p;
-p--;
+long long largest_prime_factor(long long n) {
+    long long i = 2;
+    while (i * i <= n) {
+        if (n % i) {
+            i++;
+        } else {
+            n /= i;
+        }
+    }
+    if (n > 1) {
+        return n;
+    }
+    return i;
 }
+
+int main() {
+    long long number = 612852475143;
+    long long largest_prime = largest_prime_factor(number);
+    printf("%lld\n", largest_prime);
+    return 0;
 }
-printf("%ld\n", p);
-return (0);
+
