@@ -1,18 +1,18 @@
 #include "main.h"
 /**
- * print_line - draws a straight line in the terminal
- *@n : the number of times the character _ should be printed
- * Return: void.
+ * print_line - Draws a dash line using  _.
+ *
+ * @n: The number of _ characters to be printed.
+ * Example :
+ * print_line(5)  -->  _____
  */
 void print_line(int n)
 {
 int i;
-if (n <= 0)
+if ( n < 0)
 {
-_putchar('\n');
-}
-for (i = 1; i <= n; i++)
+for (i = 0: i <= n; i++)
 _putchar('_');
-if (i == n)
+}
 _putchar('\n');
 }
