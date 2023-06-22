@@ -11,8 +11,8 @@ if (size > 0)
 {
 for (i = 0; i < size; i++)
 {
-_putchar('#');
+putchar('#');
 }
 }
-_putchar('\n');
+putchar('\n');
 }
