@@ -12,7 +12,7 @@ while (number > prime)
 {
 if (number % prime == 0)
 {
-number = number /prime;
+number = number / prime;
 }
 else
 {
