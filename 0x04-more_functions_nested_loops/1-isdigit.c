@@ -1,10 +1,10 @@
 #include "main.h"
 #include <ctype.h>
 /**
- * _isupper - checks for uppercase character
+ * _isdigit - checks for a digit (0 through 9).
  * @c: The character to check
  *
- * Return: 1 if c is uppercase, return 0 otherwise
+ * Return: 1 if c is a digit, return 0 otherwise
  */
 int _isdigit(int c)
 {
@@ -14,4 +14,4 @@ return (1);
 }
 else
 return (0);
-}i
+}
