@@ -5,8 +5,8 @@
  * Return: (0) Success
  */
 int main(void) {
-long long number = 612852475143;
-long long prime = 2;
+long int number = 612852475143;
+long int prime = 2;
 
 while (number > prime)
 {
@@ -19,7 +19,7 @@ else
 prime++;
 }
 }
-printf("%lld\n", prime);
+printf("%ld\n", prime);
 return (0);
 }
 
