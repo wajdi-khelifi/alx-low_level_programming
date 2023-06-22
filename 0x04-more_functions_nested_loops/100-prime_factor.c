@@ -4,10 +4,10 @@
  *
  * Return: (0) Success
  */
-int main(void) {
+int main(void) 
+{
 long int number = 612852475143;
 long int prime = 2;
-
 while (number > prime)
 {
 if (number % prime == 0)
@@ -22,4 +22,3 @@ prime++;
 printf("%ld\n", prime);
 return (0);
 }
-
