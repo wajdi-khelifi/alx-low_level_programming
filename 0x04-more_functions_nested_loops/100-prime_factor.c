@@ -4,25 +4,22 @@
  *
  * Return: (0) Success
  */
-long long largest_prime_factor(long long n) {
-    long long i = 2;
-    while (i * i <= n) {
-        if (n % i) {
-            i++;
-        } else {
-            n /= i;
-        }
-    }
-    if (n > 1) {
-        return n;
-    }
-    return i;
-}
+int main(void) {
+long long number = 612852475143;
+long long prime = 2;
 
-int main() {
-    long long number = 612852475143;
-    long long largest_prime = largest_prime_factor(number);
-    printf("%lld\n", largest_prime);
-    return 0;
+while (number > prime)
+{
+if (number % prime == 0)
+{
+number = number /prime;
+}
+else
+{
+prime++;
+}
+}
+printf("%lld\n", prime);
+return (0);
 }
 
