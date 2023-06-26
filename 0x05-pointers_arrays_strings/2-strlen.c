@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * _strlen - check the code for Holberton School students.
  * @s: declaration of *s and paramters for the function _strlen
@@ -6,7 +7,7 @@
  */
 int _strlen(char *s)
 {
-	int lenght = strlen(*s);
+	int len = strlen(*s);
 
-	return (lenght);
+	return (len);
 }
