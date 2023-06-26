@@ -8,6 +8,7 @@
 void puts_half(char *str)
 {
 	int i = 0;
+	int j = 0;
 	int length_of_the_string = strlen(str);
 	int n = 0;
 
@@ -16,14 +17,20 @@ void puts_half(char *str)
 		n = (length_of_the_string - 1) / 2;
 		for (i = length_of_the_string; i >= n; i--)
 		{
-			_putchar(str[i]);
+			for (j = n; j <= length_of_the_string; j++)
+			{
+				_putchar(str[i]);
+			}
 		}
 	}
 	else
 	{
 		for (i = length_of_the_string; i >= length_of_the_string / 2; i--)
 		{
-			_putchar(str[i]);
+			for (j = length_of_the_string / 2; j <= length_of_the_string; j++)
+			{
+				_putchar(str[i]);
+			}
 		}
 	_putchar('\n');
 	}
