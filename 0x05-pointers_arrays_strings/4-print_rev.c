@@ -16,5 +16,5 @@ void print_rev(char *s)
 		s[i] = s[j];
 		s[j] = temp;
 	}
-	return (s);
+	return (*s);
 }
