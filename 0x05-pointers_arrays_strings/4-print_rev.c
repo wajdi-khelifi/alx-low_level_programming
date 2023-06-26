@@ -9,6 +9,9 @@ void print_rev(char *s)
 	int len = strlen(s);
 	char temp;
 
+	if (s == NULL)
+		return;
+
 	for (i = 0, j = len - 1; i < j; i++, j--)
 	{
 		temp = s[i];
