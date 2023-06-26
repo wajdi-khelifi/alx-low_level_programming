@@ -16,37 +16,38 @@ int _atoi(char *s)
 	int result = 0;
 	int sign = 1;
 	bool digitFound = false;
-
-	while (*s != '\0') {
-		if (*s == '-' && !digitFound) 
-		{
-			sign = -1;
-		}
-		else if (*s == '+' && !digitFound)
-		{
-			sign = 1;
-		}
-		else if (*s >= '0' && *s <= '9')
-		{
-			digitFound = true;
-			result = result * 10 + (*s - '0');
-			if (result < 0)
-			{
-				if (sign == 1)
-				{
-					return -1;
-				}
-				else
-				{
-					return 0;
-				}
-			}
-		}
-		else if (digitFound)
-		{
-			break;
-		}
-		s++;
+    
+    while (*s != '\0')
+    {
+	    if (*s == '-' && !digitFound)
+	{
+		sign = -1;
 	}
-	return (sign * result);
+	else if (*s == '+' && !digitFound)
+	{
+		sign = 1;
+	}
+	else if (*s >= '0' && *s <= '9')
+	{
+		digitFound = true;
+	    result = result * 10 + (*s - '0');
+	    if (result < 0)
+	    {
+		    if (sign == 1)
+		{
+			return (-1);
+		}
+		else
+		{
+			return (0);
+		}
+	    }
+	}
+	else if (digitFound)
+	{
+		break;
+	}
+	s++;
+    }
+    return (sign * result);
 }
