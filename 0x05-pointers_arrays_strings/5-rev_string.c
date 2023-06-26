@@ -17,4 +17,5 @@ void rev_string(char *s)
 	{
 		swap = s[i];
 	}
+	return (swap);
 }
