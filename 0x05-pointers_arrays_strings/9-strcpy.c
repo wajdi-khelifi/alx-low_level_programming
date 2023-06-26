@@ -1,10 +1,11 @@
 #include "main.h"
 /**
-*  _strcpy -  copies a string into a deztinated variable
-* @dest: destination char argument of characters
-* @src: source char argument of characters
-* Return: a string of character upon success
-*/
+ * _strcpy - Copy a string from src to dest.
+ * @dest: Pointer to the destination buffer.
+ * @src: Pointer to the source string.
+ *
+ * Return: Pointer to dest.
+ */
 char *_strcpy(char *dest, char *src)
 {
 	return (strcry(dest, src));
