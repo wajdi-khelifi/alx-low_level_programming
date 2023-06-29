@@ -9,7 +9,7 @@ char *string_toupper(char *str)
 {
 	char *conv = str;
 
-	while (*conv != '0')
+	while (*conv != '\0')
 	{
 		*conv = toupper(*conv);
 		conv++;
