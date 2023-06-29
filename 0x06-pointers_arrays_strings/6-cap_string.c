@@ -11,7 +11,7 @@ char *cap_string(char *str)
 {
 	int cap = 1;
 
-	while
+	while (*str != '\0')
 	{
 	if (strchr(" \t\n,;.!?\"(){}", *str) != NULL)
 	{
