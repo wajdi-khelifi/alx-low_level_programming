@@ -7,14 +7,5 @@
 */
 char *_strpbrk(char *s, char *accept)
 {
-	int i = 0;
-
-	while (s[i] != '\0' && s[i] != accept)
-	{
-		i++;
-	}
-	if (s[i] == c)
-		return (strpbrk(s, accept));
-	else
-		return (NULL);
+	return (strpbrk(s, accept));
 }
