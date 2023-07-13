@@ -1,124 +1,260 @@
 #include "main.h"
+int contains_non_numeric(char *str);
+int _atoi(char *s);
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+void move_int_end_to_beg(char *str, int size, char fill);
+char *multiply_strings(char *s1, char *s2, char *buff, unsigned int size_b);
+void *set_mem(void *p, unsigned int nmemb, unsigned int size, char ch);
+void *_calloc(unsigned int nmemb, unsigned int size);
+int _strlen(char *s);
 /**
- * main - multiplies two positive numbers
- * @argc: argument count
- * @argv: argument vectors
- * Return: 0
+ * main - entry point for program
+ *
+ * @argc: count of arguments
+ * @argv: list of pointers to arguments
+ *
+ * Return: 0 on success, 1 on failure
  */
 int main(int argc, char *argv[])
 {
-	char *f = argv[1];
-	char *s = argv[2];
+	unsigned int mem;
+	int i;
 
-	if (argc != 3 || !onlyNumbers(f) || !onlyNumbers(s))
+	char *ret;
+
+	if (argc != 3)
 	{
 		printf("Error\n");
-		exit(98);
+		return (98);
 	}
-	if (*f == 48 || *s == 48)
-		printf("0\n");
-	else
-		multiply(s, f);
+	for (i = 1; i < argc; i++)
+	{
+		if (contains_non_numeric(argv[i]))
+		{
+			printf("Error\n");
+			return (98);
+		}
+	}
+	mem = _strlen(argv[1]) + _strlen(argv[2]) + 1;
+	ret = _calloc(mem, sizeof(char));
+	if (ret == NULL)
+		return (98);
+	ret = multiply_strings(argv[1], argv[2], ret, mem);
+	printf("%s\n", ret);
 	return (0);
 }
-
 /**
- * multiply - multiplies two numbers and displays it
- * @f: first "number"
- * @s: second "number"
+ * multiply_strings - multiplies two strings together
+ *
+ * @s1: string 1 to multiply with string 2
+ * @s2: string 2 to multiply with string 1
+ * @buff: buffer to store result in
+ * @size_b: size of buffer in bytes
+ *
+ * Return: pointer to beginning of buffer
  */
-void multiply(char *f, char *s)
+char *multiply_strings(char *s1, char *s2, char *buff, unsigned int size_b)
 {
-	int i, len1, len2, total, fdigit, sdigit, res = 0, tmp;
-	int *ptr;
+	char *smaller, *larger;
+	int i = 0, res = 0;
 
-	len1 = _strlen(f);
-	len2 = _strlen(s);
-	tmp = len2;
-	total = len1 + len2;
-	ptr = _calloc(sizeof(int), (len1 + len2));
-	for (len1--; len1 >= 0; len1--)
+	smaller = (_strlen(s1) > _strlen(s2)) ? s1 : s2;
+	larger = (smaller == s1) ? s2 : s1;
+	res =  _atoi(smaller);
+	while (i < res)
 	{
-		fdigit = f[len1] - '0';
-		res = 0;
-		len2 = tmp;
-		for (len2--; len2 >= 0; len2--)
-		{
-			sdigit = s[len2] - '0';
-			res += ptr[len2 + len1 + 1] + (fdigit * sdigit);
-			ptr[len1 + len2 + 1] = res % 10;
-			res /= 10;
-		}
-		if (res)
-			ptr[len1 + len2 + 1] = res % 10;
+		buff = infinite_add(buff, larger, buff, size_b);
+		i++;
 	}
-	while (*ptr == 0)
-	{
-		ptr++;
-		total--;
-	}
-	for (i = 0; i < total; i++)
-		printf("%i", ptr[i]);
-	printf("\n");
+	return (buff);
 }
 /**
- * onlyNumbers - determines if string has only numbers
- * @c: input string
- * Return: 0 if false, 1 if true
- */
-int onlyNumbers(char *c)
-{
-	while (*c)
-	{
-		if (*c < '0' || *c > '9')
-			return (0);
-		c++;
-	}
-	return (1);
-}
-/**
- * _strlen - returns the length of a string
- * @s: string s
+ * _strlen - gets length of string
+ *
+ * @s: string to get length of
+ *
  * Return: length of string
  */
 int _strlen(char *s)
 {
-	char *p = s;
+	int len = 0;
+
+	while (s[len])
+		len++;
+	return (len);
+}
+/**
+ * contains_non_numeric - checks if string has non numeric values
+ *
+ * @str: string to check
+ *
+ * Return: 1 if contains non numeric values, 0 if only numeric
+ */
+int contains_non_numeric(char *str)
+{
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+			return (1);
+		str++;
+	}
+	return (0);
+}
+/**
+ * _atoi - converts string to integer
+ *
+ * @s: string to convert from
+ *
+ * Return: integer from conversion, -1 if contains nonint
+ */
+int _atoi(char *s)
+{
+	int sign = 1;
+	unsigned int total = 0;
+	char working = 0;
 
 	while (*s)
+	{
+		if (*s == '-')
+			sign = sign * -1;
+		if (*s >= '0' && *s <= '9')
+		{
+			working = 1;
+			total = total * 10 + *s - '0';
+		}
+		else if (*s < '0' || *s > '9')
+		{
+			if (working)
+				break;
+		}
 		s++;
-	return (s - p);
+	}
+	if (sign < 0)
+		total = (-(total));
+	return (total);
 }
 /**
- * _memset - fills memory with a constant byte
- * @s: memory area
- * @b: constant byte
- * @n: bytes of the memory area
- * Return: pointer to the memory area s
+ * infinite_add - adds two numbers
+ *
+ * @n1: *char - first number
+ * @n2: *char - second number
+ * @r:  *char - buffer where result is stored
+ * @size_r: int - size of buffer
+ *
+ * Return: pointer to r
  */
-char *_memset(char *s, char b, unsigned int n)
+char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	char *ptr = s;
+	int tempSizeR = size_r;
+	char fill = 'd';
+	int n1Length = 0, n2Length = 0, result = 0, carryStore = 0;
 
-	while (n--)
-		*s++ = b;
-	return (ptr);
+	while (*(n1 + n1Length) != '\0')
+		n1Length++;
+	while (*(n2 + n2Length) != '\0')
+		n2Length++;
+	/* account for 9999, 1, size_r:4, and extra space needed for '\0' */
+	if (n1Length > size_r - 2 || n2Length > size_r - 2)
+		return (0);
+	n1Length--, n2Length--; /* set element behind null byte */
+	while (size_r >= 0)
+	{
+		if (size_r == tempSizeR)
+		{ /* set last byte to end of string char or 'null byte' */
+			r[size_r--] = '\0';
+			continue;
+		}
+		if (n1Length < 0 && n2Length < 0 && carryStore == 0)
+		{
+			r[size_r--] = fill;
+			continue; /* fill in rest with constants's */
+		}
+		else if (n1Length < 0 && n2Length < 0 && carryStore != 0)
+			result = carryStore;
+		else if (n1Length < 0)
+			result = n2[n2Length] + carryStore - '0';
+		else if (n2Length < 0)
+			result = n1[n1Length] + carryStore - '0';
+		else /* normal case */
+		{
+			result = (n1[n1Length] - '0') + (n2[n2Length] - '0') + carryStore;
+		}
+		carryStore = 0;
+		if (result > 9)
+		{
+			carryStore = 1;
+			result = result - 10;
+		}
+		n1Length--, n2Length--;
+		r[size_r--] = result + '0';
+	}
+	move_int_end_to_beg(r, tempSizeR, fill);
+	return (r);
 }
 /**
- * _calloc - allocates memory for an array, using malloc
- * @nmemb: number of elements of pointer
+ * move_int_end_to_beg - moves integer from end of str to beginning
+ *
+ * @arr: string to change
+ * @arrSize: size of string including null byte
+ * @fillChar: character used to fill string that isn't part being moved
+ *
+ * Return: always void
+ */
+void move_int_end_to_beg(char *arr, int arrSize, char fillChar)
+{
+	int i = 0;
+	int bufferPlacer = 0;
+	/* below loop moves elements to beginning of array */
+	while (i < arrSize)
+	{
+		if (arr[i] != fillChar)
+		{
+			arr[bufferPlacer++] = arr[i];
+			arr[i] = '\0';
+		}
+		else
+			arr[i] = '\0';
+		i++;
+	}
+}
+#include <stdlib.h>
+void *set_mem(void *p, unsigned int nmemb, unsigned int size, char ch);
+/**
+ * _calloc - allocates memory for an array, and inits
+ *
+ * @nmemb: number of members in array
  * @size: size of each member
- * Return: pointer of allocated memory
+ *
+ * Return: void pointer to beginning of alloc/init'ed memory
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *ptr;
+	void *ret;
 
-	if (!nmemb || !size)
+	if (nmemb < 1 || size < 1)
 		return (NULL);
-	ptr = malloc(size * nmemb);
-	if (!ptr)
+	ret = malloc(nmemb * size);
+	if (ret == NULL)
 		return (NULL);
-	_memset(ptr, 0, size * nmemb);
-	return (ptr);
+	ret = set_mem(ret, nmemb, size, '\0');
+	return (ret);
+}
+/**
+ * set_mem - sets memory for void pointer
+ *
+ * @p: pointer to beginning of memory to set
+ * @nmemb: number of members of array
+ * @size: size of elements of array
+ * @ch: character to set memory to
+ *
+ * Return: void pointer to beginning of set memory
+ */
+void *set_mem(void *p, unsigned int nmemb, unsigned int size, char ch)
+{
+	char *cast = p;
+	unsigned int i = 0;
+
+	while (i < nmemb * size)
+		cast[i++] = ch;
+	return (p);
 }
