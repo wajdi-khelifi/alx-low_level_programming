@@ -9,11 +9,6 @@
  */
 int sum_them_all(const unsigned int n, ...)
 {
-	if (n == NULL)
-	{
-		return (0);
-	}
-
 	va_list args;
 	unsigned int i, sum = 0;
 
