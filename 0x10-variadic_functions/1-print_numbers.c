@@ -7,18 +7,17 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	va_list args;
+	va_list(num);
+	unsigned int i;
 
-	va_start(args, n);
+	va_start(num, i);
 
-	int max = va_arg(args, int);
-
-	for (int i = 0; i < n - 1; i++)
+	for (i = 0; i < n; i++)
 	{
-		int temp = va_arg(args, int);
-
-		max = temp > max ? temp : max;
+		printf("%d", va_arg(num, int));
+		if (i != (n - 1) && separator != NULL)
+			printf("%s", separator);
 	}
-	va_end(args);
-	printf("\n %d ", print_numbers);
+	printf("\n");
+	va_end(num);
 }
