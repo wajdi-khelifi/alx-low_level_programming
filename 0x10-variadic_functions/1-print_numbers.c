@@ -20,5 +20,5 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		max = temp > max ? temp : max;
 	}
 	va_end(args);
-	return (max);
+	printf("\n %d ", print_numbers);
 }
