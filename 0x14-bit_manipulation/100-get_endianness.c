@@ -10,7 +10,7 @@ int get_endianness(void)
 	char *c;
 
 	count = 1;
-	c = (char *) & count;
+	c = (char *)&count;
 
 	return (*c);
 }
