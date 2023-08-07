@@ -104,5 +104,5 @@ int main(int argc, char *argv[])
 	close_from = close(fd_from);
 	check100(close_to, fd_to);
 	check100(close_from, fd_from);
-	return (1);
+	return (0);
 }
