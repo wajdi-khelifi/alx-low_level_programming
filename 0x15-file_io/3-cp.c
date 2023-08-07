@@ -7,7 +7,7 @@
  */
 void error(char *msg, int exit_code)
 {
-	dprintf(STRERR_FILENO, "%s\n", msg);
+	dprintf(STDERR_FILENO, "%s\n", msg);
 	exit(exit_code);
 }
 /**
