@@ -43,8 +43,5 @@ By the end of this project, you are expected to be able to explain to anyone, wi
 - Detailed requirements for each task are provided in their respective descriptions
 
 ## Author
-
-- Julien Barbier
-- GitHub Repository: [alx-low_level_programming](https://github.com/wajdi-khelifi/alx-low_level_programming)
-- Directory: 0x15-file_io
-
+- wajdi khelifi
+- GitHub: [wajdi khelifi](https://github.com/wajdi-khelifi)
